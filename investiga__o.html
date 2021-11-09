@@ -28,7 +28,7 @@ tw-icon {
 	text-align: right;
 	padding-right: 0.75em;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="cena1" tags="" position="1480,451.3333333333333" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;INTERIOR DO CARRO&#39;&#39;]
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="cena1" tags="" position="1480,451" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;INTERIOR DO CARRO&#39;&#39;]
 
 (if: $gamestart is 0)[
 “Você acorda com uma forte dor de cabeça, olha em volta, se vê em um acidente de carro, nenhum ferimento grave aparente, mas percebe que não lembra de nada, nem seu nome, nem onde está ou o que estava fazendo”
@@ -70,10 +70,13 @@ Percebe que ontem parou em um strip club, talvez lá tenham alguma pista!
 
 &#39;&#39;Você se aproxima do carro e tem duas pessoas aparantemente mortas nos bancos da frente.&#39;&#39;
 
-[[Vascular boslos dos corpos-&gt;docsestrangeiros]]
+(if: $TemDocsEstrangeiros is 0)[[[Vascular boslos dos corpos-&gt;docsestrangeiros]]]
 [[Porta-luvas -&gt;portaluvasinalcansavel]]
 
-[[Voltar-&gt;cena1]] </tw-passagedata><tw-passagedata pid="9" name="docsestrangeiros" tags="" position="1962,356" size="100,100">Você encontra passaportes russos e R$ 500,00
+[[Voltar-&gt;cena1]] </tw-passagedata><tw-passagedata pid="9" name="docsestrangeiros" tags="" position="1962,354.3333333333333" size="100,100">Você encontra passaportes russos e R$ 500,00
+//Passaportes Russos adiconados ao inventario//
+(set: $dinheiro to $dinheiro+500)
+(set: $TemDocsEstrangeiros to 1)
 [[Voltar-&gt;outrocarro]] </tw-passagedata><tw-passagedata pid="10" name="portaluvas" tags="" position="1718,709" size="100,100">(if: $portaluvafoivisitado is 0)[
 Encontrou R$ 500,00 e alguns documentos do carro.
 (set: $portaluvafoivisitado to 1)
@@ -94,7 +97,7 @@ Ele usa uma camiseta com a logo de um Strip Club
 Você encontra no chão do closet um cartão de visitas do Strip Club com o nome Mary escrito atrás.
 (set: $mary to 1)
 (set: $unlockStrip to 1)
-[[Voltar-&gt;hotel]] </tw-passagedata><tw-passagedata pid="14" name="celular" tags="menu" position="2291,1584" size="100,100">(if: $celPassword is 0)[Você não sabe a senha do celular]
+[[Voltar-&gt;hotel]] </tw-passagedata><tw-passagedata pid="14" name="celular" tags="menu" position="2292.6666666666665,1584" size="100,100">(if: $celPassword is 0)[Você não sabe a senha do celular]
 (if: $celPassword is 1)[
 [[Google-&gt;google]]
 [[Mensagens-&gt;mensagens]]
@@ -258,7 +261,7 @@ Voce rouba as gravações das câmeras,
 [[Voltar-&gt;adm]]</tw-passagedata><tw-passagedata pid="53" name="saidaAlt" tags="" position="1415,3872" size="100,100">Você reuniu muitas pistas, talvez seja hora de voltar para o hotel e juntar as peças.
 (set: $restauranteUnlock to 0)
 [[Voltar para o hotel-&gt;hotel]] 
-[[Ir para outro lugar-&gt;viajar]] </tw-passagedata><tw-passagedata pid="54" name="portaluvasinalcansavel" tags="" position="1800,525" size="100,100">&quot;Está inalcansável&quot;
+[[Ir para outro lugar-&gt;viajar]] </tw-passagedata><tw-passagedata pid="54" name="portaluvasinalcansavel" tags="" position="1800,525" size="100,100">&#39;&#39;O porta-luvas stá inalcansável.&#39;&#39;
 [[Voltar-&gt;outrocarro]] </tw-passagedata><tw-passagedata pid="55" name="docscarro" tags="" position="1956,846" size="100,100">Aparentemente é um carro alugado, em um dos documentos está o endereço da locadora.
 
 [[Ir para locadora de carros-&gt;confirmalocadora]]
@@ -275,15 +278,14 @@ Voce rouba as gravações das câmeras,
 Dentro da carteira você encontra um documento de identidade e R$ 500.
 (set: $dinheiro to $dinheiro+500)
 (set: $carteirafoivisitada to 1)]
-
-[[Analisar documento-&gt;documentoPlayer]]
-[[Voltar-&gt;bolsos]]</tw-passagedata><tw-passagedata pid="59" name="documentoPlayer" tags="" position="1099,740.3333333333333" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER ABAIXO:&#39;&#39;
-
-[[Voltar-&gt;carteira]]</tw-passagedata><tw-passagedata pid="60" name="Sidebar" tags="footer" position="2404.3333333333335,1163.6666666666667" size="100,100">(replace: ?Sidebar)[]
+(if: $DocumentoDoPlayer is 0)[[[Analisar documento-&gt;documentoPlayer]]]
+[[Voltar-&gt;bolsos]]</tw-passagedata><tw-passagedata pid="59" name="documentoPlayer" tags="" position="1099,740" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER ABAIXO:&#39;&#39;
+(set: $DocumentoDoPlayer to 1)
+[[Voltar-&gt;carteira]]</tw-passagedata><tw-passagedata pid="60" name="Sidebar" tags="footer" position="2370.6666666666665,1063" size="100,100">(replace: ?Sidebar)[]
 (append: ?SideBar)[\
 (if: $dinheiro is not 0)[Dinheiro: R$ $dinheiro]
 (if: not ((passage:)&#39;s tags contains &quot;menu&quot;))[
-(if: $temcelular is 1)[ [[celular]] ]
+(if: $gamestart is 1)[ [[Inventário]] ]
 (set: $lastPassage to (passage:)&#39;s name)]
 
 ]</tw-passagedata><tw-passagedata pid="61" name="Startup" tags="Startup" position="1473,257" size="100,100">(set: $dinheiro to 0)
@@ -291,7 +293,10 @@ Dentro da carteira você encontra um documento de identidade e R$ 500.
 Esta é uma experiência investigativa onde você jogará contra o tempo, explorar opções de diálogo e interação pertinentes recompensarão com atalhos, mas nem todo detalhe é essencial para o progresso.
 
 
-[[Começar Jogo-&gt;cena1]]</tw-passagedata></tw-storydata>
+[[Começar Jogo-&gt;cena1]]</tw-passagedata><tw-passagedata pid="62" name="Inventário" tags="menu" position="2343.9999999999995,1236.3333333333333" size="100,100">(if: $temcelular is 1)[ [[celular]] ]
+(if: $DocumentoDoPlayer is 1)[ [[Meu documento]] ]
+(if: $TemDocsEstrangeiros is 1)[ [[Passaportes Russos]] ]
+(link-goto: &quot;Leave Menu&quot;, $lastPassage)</tw-passagedata><tw-passagedata pid="63" name="Passaportes Russos" tags="" position="2633.9999999999995,1282.3333333333333" size="100,100">&#39;&#39;IMAGEM DOS PASSAPORTES RUSSOS&#39;&#39;</tw-passagedata><tw-passagedata pid="64" name="Meu documento" tags="" position="2615.666666666666,1053" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER&#39;&#39;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
