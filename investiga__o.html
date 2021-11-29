@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play investigação.</tw-noscript></noscript></tw-story>
-<tw-storydata name="investigação" startnode="61" creator="Twine" creator-version="2.3.14" ifid="8FBBC121-8C01-4DDD-8BA0-21E564DBE44B" zoom="0.6" format="Harlowe" format-version="3.2.2" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "UserStylesheet" */
+<tw-storydata name="investigação" startnode="57" creator="Twine" creator-version="2.3.14" ifid="8FBBC121-8C01-4DDD-8BA0-21E564DBE44B" zoom="0.6" format="Harlowe" format-version="3.2.2" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "UserStylesheet" */
 /*
 	Reposition the Sidebar 'footer' tagged passage.
 */
@@ -36,7 +36,7 @@ tw-icon {
 
 [[Vasculhar meus bolsos -&gt;bolsos]]
 [[Sair do carro -&gt;olharemvolta]]
-[[Abrir o porta luvas -&gt;portaluvas]]
+(if: $portaluvafoivisitado is 0)[ [[Abrir o porta luvas -&gt;portaluvas]] ]
 
 
 (if: $anyUnlock is 1)[[[Ir para outro lugar-&gt;viajar]]]</tw-passagedata><tw-passagedata pid="2" name="bolsos" tags="" position="1473,645" size="100,100">&#39;&#39;Você vasculha seus bolsos e encontra:&#39;&#39;
@@ -45,79 +45,68 @@ tw-icon {
 
 [[Cartão-chave do hotel -&gt;cartão-chave]]
 
-[[Chaveiro da locadora de carro -&gt;chaveiro locadora]]
-
-[[Voltar-&gt;cena1]]</tw-passagedata><tw-passagedata pid="3" name="cartão-chave" tags="" position="1551,767" size="100,100">[[Ir para hotel -&gt;confirmahotel]]
+[[Voltar-&gt;cena1]]</tw-passagedata><tw-passagedata pid="3" name="cartão-chave" tags="" position="1562.6666666666667,818.6666666666666" size="100,100">[[Ir para hotel -&gt;confirmahotel]]
 [[Continuar investigando aqui-&gt;bolsos]]
-(set: $unlockHotel to 1)</tw-passagedata><tw-passagedata pid="4" name="hotel" tags="" position="1848,1082" size="100,100">(if: $mala is 0)[[[Mala de viagem -&gt;mala]]]
+(set: $unlockHotel to 1)</tw-passagedata><tw-passagedata pid="4" name="hotel" tags="" position="1849.6666666666667,1082" size="100,100">(if: $mala is 0)[[[Mala de viagem -&gt;mala]]]
 (if: $closet is 0)[[[Baraulho de gemidos no closet-&gt;pessoaamordaçada]]]
 (if: $celular is 1)[[[Celular-&gt;celular]]]
 (if: $unlockStrip is 1)[ [[Ir ao Strip Club-&gt;stripclub]] ]
 [[Ir para outro lugar-&gt;viajar]]
-(set: $anyUnlock to 1)</tw-passagedata><tw-passagedata pid="5" name="chaveiro locadora" tags="" position="1254,807" size="100,100">[[Ir para locadora de carros -&gt;locadora]]
-[[Espera, ainda deve ter alguma pista neste carro -&gt;bolsos]]
-(set: $unlockLocadora to 1)</tw-passagedata><tw-passagedata pid="6" name="locadora" tags="" position="1165,938" size="100,100">Você consegue solicitar o rastreamento do carro e analisa o mapa.
-Percebe que ontem parou em um strip club, talvez lá tenham alguma pista!
-[[Ir ao Strip Club-&gt;stripclub]]
-[[Ir para outro lugar-&gt;viajar]]
-(set: $unlockStrip to 1)
-(set: $anyUnlock to 1)</tw-passagedata><tw-passagedata pid="7" name="olharemvolta" tags="" position="1652,446" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;LADO DE FORA DO CARRO&#39;&#39;]
+(set: $anyUnlock to 1)</tw-passagedata><tw-passagedata pid="5" name="olharemvolta" tags="" position="1770.3333333333333,482.6666666666667" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;LADO DE FORA DO CARRO&#39;&#39;]
 
 &#39;&#39;Você saiu do carro e ve que bateu de frente em uma árvore, mais alguns metros adiante tem outro carro, este capotado, parece que ele estava vindo em sua direção.&#39;&#39;
 
 [[Ir até outro carro -&gt;outrocarro]]
-[[Voltar para dentro do carro -&gt;cena1]]</tw-passagedata><tw-passagedata pid="8" name="outrocarro" tags="" position="1800,373" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;OUTRO CARRO ACIDENTADO&#39;&#39;]
+[[Voltar para dentro do carro -&gt;cena1]]</tw-passagedata><tw-passagedata pid="6" name="outrocarro" tags="" position="1958.3333333333333,429.6666666666667" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;OUTRO CARRO ACIDENTADO&#39;&#39;]
 
 &#39;&#39;Você se aproxima do carro e tem duas pessoas aparantemente mortas nos bancos da frente.&#39;&#39;
 
 (if: $TemDocsEstrangeiros is 0)[[[Vascular boslos dos corpos-&gt;docsestrangeiros]]]
 [[Porta-luvas -&gt;portaluvasinalcansavel]]
 
-[[Voltar-&gt;cena1]] </tw-passagedata><tw-passagedata pid="9" name="docsestrangeiros" tags="" position="1962,354.3333333333333" size="100,100">Você encontra passaportes russos e R$ 500,00
+[[Voltar-&gt;cena1]] </tw-passagedata><tw-passagedata pid="7" name="docsestrangeiros" tags="" position="2120.3333333333335,410.6666666666667" size="100,100">Você encontra passaportes russos e R$ 500,00
 //Passaportes Russos adiconados ao inventario//
 (set: $dinheiro to $dinheiro+500)
 (set: $TemDocsEstrangeiros to 1)
-[[Voltar-&gt;outrocarro]] </tw-passagedata><tw-passagedata pid="10" name="portaluvas" tags="" position="1718,709" size="100,100">(if: $portaluvafoivisitado is 0)[
-Encontrou R$ 500,00 e alguns documentos do carro.
+[[Voltar-&gt;outrocarro]] </tw-passagedata><tw-passagedata pid="8" name="portaluvas" tags="" position="1814.6666666666665,747.3333333333333" size="100,100">(if: $portaluvafoivisitado is 0)[
+Encontrou R$ 500,00 e uma arma.
 (set: $portaluvafoivisitado to 1)
 (set: $dinheiro to $dinheiro+500)]
-
-[[Analisar documentos-&gt;docscarro]]
-[[Voltar-&gt;cena1]] </tw-passagedata><tw-passagedata pid="11" name="stripclub" tags="" position="1472,1420" size="100,100">[[Pedir informações ao barman-&gt;barman1]]
+[[Voltar-&gt;cena1]] </tw-passagedata><tw-passagedata pid="9" name="stripclub" tags="" position="1472,1420" size="100,100">[[Pedir informações ao barman-&gt;barman1]]
 Pedir um drinque
 Assistir a uma dança
 (if: $camarimUnlock is 1)[[[Ir ao camarim-&gt;camarim]]]
 
-[[Ir para outro lugar-&gt;viajar]]</tw-passagedata><tw-passagedata pid="12" name="mala" tags="" position="1826,1348" size="100,100">(set: $mala to 1)
+[[Ir para outro lugar-&gt;viajar]]</tw-passagedata><tw-passagedata pid="10" name="mala" tags="" position="1826,1348" size="100,100">(set: $mala to 1)
 (set: $dinheiro to $dinheiro+1500)
 Você encontrou R$ 1500, total: $dinheiro
 Você encontrou um celular: (set: $celular to 1)
-[[Voltar-&gt;hotel]] </tw-passagedata><tw-passagedata pid="13" name="pessoaamordaçada" tags="" position="1996,1303" size="100,100">A pessoa não sabe de nada do que está acontecendo ou quem é você.
+[[Voltar-&gt;hotel]] </tw-passagedata><tw-passagedata pid="11" name="pessoaamordaçada" tags="" position="1989.3333333333333,1329.6666666666667" size="100,100">A pessoa não sabe de nada do que está acontecendo ou quem é você.
 Ele usa uma camiseta com a logo de um Strip Club
 Você encontra no chão do closet um cartão de visitas do Strip Club com o nome Mary escrito atrás.
 (set: $mary to 1)
 (set: $unlockStrip to 1)
-[[Voltar-&gt;hotel]] </tw-passagedata><tw-passagedata pid="14" name="celular" tags="menu" position="2292.6666666666665,1584" size="100,100">(if: $celPassword is 0)[Você não sabe a senha do celular]
+[[Voltar-&gt;hotel]] </tw-passagedata><tw-passagedata pid="12" name="celular" tags="menu" position="2308.6666666666665,1539" size="100,100">(if: $celPassword is 0)[Você não sabe a senha do celular]
 (if: $celPassword is 1)[
 [[Google-&gt;google]]
 [[Mensagens-&gt;mensagens]]
 [[Ligações-&gt;ligações]]
 [[Galeria-&gt;galeria]]
 ]
-(link-goto: &quot;Leave Menu&quot;, $lastPassage)</tw-passagedata><tw-passagedata pid="15" name="google" tags="" position="2570,1456" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="16" name="mensagens" tags="" position="2561,1806" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="17" name="ligações" tags="" position="2566,1571" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="18" name="galeria" tags="" position="2566,1687" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name="barman1" tags="" position="1474,1569" size="100,100">(if: $mary is 1)[[[Quem é Mary?-&gt;barman2]]]
-(if: $mary is 0)[[[Você já me viu por aqui antes?-&gt;barman3]]]</tw-passagedata><tw-passagedata pid="20" name="barman2" tags="" position="1399,1720" size="100,100">Mary é uma das nossas dançarinas, ela está no camarim
+(link-goto: &quot;Leave Menu&quot;, $lastPassage)</tw-passagedata><tw-passagedata pid="13" name="google" tags="" position="2586.6666666666665,1411" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="14" name="mensagens" tags="" position="2577.6666666666665,1761" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="15" name="ligações" tags="" position="2582.6666666666665,1526" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="16" name="galeria" tags="" position="2582.6666666666665,1642" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="17" name="barman1" tags="" position="1474,1569" size="100,100">(if: $mary is 1)[[[Quem é Mary?-&gt;barman2]]]
+(if: $mary is 0)[[[Você já me viu por aqui antes?-&gt;barman3]]]</tw-passagedata><tw-passagedata pid="18" name="barman2" tags="" position="1399,1720" size="100,100">Mary é uma das nossas dançarinas, ela está no camarim
 [[Ir ao camarim-&gt;camarim]]
 [[Voltar-&gt;stripclub]] 
-(set: $camarimUnlock to 1)</tw-passagedata><tw-passagedata pid="21" name="barman3" tags="" position="1592,1712" size="100,100">Não, eu só estou fazendo um bico aqui, comecei hoje, mas talvez o outro barman possa te ajudar, ele chega daqui umas 2 horas para o turno dele.
+(set: $camarimUnlock to 1)</tw-passagedata><tw-passagedata pid="19" name="barman3" tags="" position="1592,1712" size="100,100">Não, eu só estou fazendo um bico aqui, comecei hoje, mas talvez o outro barman possa te ajudar, ele chega daqui umas 2 horas para o turno dele.
 [[Esperar-&gt;esperar]]
-[[Não tenho tempo para isso (voltar ao início)-&gt;stripclub]]</tw-passagedata><tw-passagedata pid="22" name="(set: $dinheiro to $dinheiro+1)" tags="" position="953,107" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="23" name="(set: $dinheiro to 5)" tags="" position="1073,107" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="camarim" tags="" position="1307,1930" size="100,100">Você vai ao camarim e uma mulher olha para você e sorri, você se aproxima.
+[[Não tenho tempo para isso (voltar ao início)-&gt;stripclub]]</tw-passagedata><tw-passagedata pid="20" name="(set: $dinheiro to $dinheiro+1)" tags="" position="953,107" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="21" name="(set: $dinheiro to 5)" tags="" position="1073,107" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="22" name="camarim" tags="" position="1307,1930" size="100,100">Você vai ao camarim e uma mulher olha para você e sorri, você se aproxima.
 
 
-[[Você é a Mary, certo? Olha, deve ser estranho, mas eu meio que não lembro de nada dos últimos dias e to tentando entender o que estava acontecendo, pode me ajudar?-&gt;mary1]]</tw-passagedata><tw-passagedata pid="25" name="esperar" tags="" position="1549,1870" size="100,100">//Você esperar por duas horas e o próximo barman chega.
+[[Você é a Mary, certo? Olha, deve ser estranho, mas eu meio que não lembro de nada dos últimos dias e to tentando entender o que estava acontecendo, pode me ajudar?-&gt;mary1]]</tw-passagedata><tw-passagedata pid="23" name="esperar" tags="" position="1549,1870" size="100,100">//Você esperar por duas horas e o próximo barman chega.
 //
 Você voltou, ta procurando a Mary?
 (set: $mary to 1)
-[[Quem é Mary?-&gt;barman2]]</tw-passagedata><tw-passagedata pid="26" name="mary1" tags="" position="1307,2079" size="100,100">&#39;&#39;Certo, o que quer saber?&#39;&#39;
+[[Quem é Mary?-&gt;barman2]]</tw-passagedata><tw-passagedata pid="24" name="mary1" tags="" position="1307,2079" size="100,100">&#39;&#39;Certo, o que quer saber?&#39;&#39;
 
 * [[Eu disse o que estava fazendo aqui?-&gt;Eu disse o que estava fazendo aqui?]]
 * [[Eu te fiz alguma pergunta sobre alguém ou algum lugar?-&gt;Perguntou onde era o Restaurante]]
@@ -135,14 +124,14 @@ Você voltou, ta procurando a Mary?
 [[Ir para outro lugar-&gt;viajar]]
 [[Ir para o Restaurante-&gt;restaurante]]
 [[Ir para o Desfile-&gt;desfile]]
-]</tw-passagedata><tw-passagedata pid="27" name="Eu disse o que estava fazendo aqui?" tags="" position="1309,2230" size="100,100">&#39;&#39;Você estava fugindo, algo envolvendo alguma mafia.&#39;&#39;
+]</tw-passagedata><tw-passagedata pid="25" name="Eu disse o que estava fazendo aqui?" tags="" position="1309,2230" size="100,100">&#39;&#39;Você estava fugindo, algo envolvendo alguma mafia.&#39;&#39;
 
 * [[Sabe porque eu estava metido com a Mafia?-&gt;Sabe porque eu estava metido com a Mafia?]]
 * [[Eu disse porque eles estavam me perseguindo?-&gt;Eu disse porque eles estavam me perseguindo?]]
 
-* [[Voltar-&gt;mary1]] </tw-passagedata><tw-passagedata pid="28" name="Sabe porque eu estava metido com a Mafia?" tags="" position="1230,2380" size="100,100">Não, e eu que não ia perguntar porque um cara armado estava metido com a mafia!
-[[Voltar-&gt;Eu disse o que estava fazendo aqui?]]</tw-passagedata><tw-passagedata pid="29" name="Eu disse porque eles estavam me perseguindo?" tags="" position="1382,2380" size="100,100">Não exatamente, mas era algo a ver com algum sequestro.
-[[Volar-&gt;Eu disse o que estava fazendo aqui?]]</tw-passagedata><tw-passagedata pid="30" name="Tinha algo de estranho em mim ontem?" tags="" position="1189,2229" size="100,100">&#39;&#39;Você estava com um bandeirinha de São João do desfile municipal presa na roupa&#39;&#39;
+* [[Voltar-&gt;mary1]] </tw-passagedata><tw-passagedata pid="26" name="Sabe porque eu estava metido com a Mafia?" tags="" position="1230,2380" size="100,100">Não, e eu que não ia perguntar porque um cara armado estava metido com a mafia!
+[[Voltar-&gt;Eu disse o que estava fazendo aqui?]]</tw-passagedata><tw-passagedata pid="27" name="Eu disse porque eles estavam me perseguindo?" tags="" position="1382,2380" size="100,100">Não exatamente, mas era algo a ver com algum sequestro.
+[[Volar-&gt;Eu disse o que estava fazendo aqui?]]</tw-passagedata><tw-passagedata pid="28" name="Tinha algo de estranho em mim ontem?" tags="" position="1189,2229" size="100,100">&#39;&#39;Você estava com um bandeirinha de São João do desfile municipal presa na roupa&#39;&#39;
 (set: $desfileUnlock to 1)
 (if: $conselho is 0)
 [
@@ -157,21 +146,20 @@ Você voltou, ta procurando a Mary?
 (if: $unlockRestaurante is 1)[[[Ir para o Restaurante-&gt;restaurante]]]
 (if: $unlockDesfile is 1)[[[Ir para o Desfile-&gt;desfile]]]
 ]
-[[Voltar-&gt;mary1]] </tw-passagedata><tw-passagedata pid="31" name="viajar" tags="" position="248,1553" size="100,100">(if: $unlockRestaurante is 1)[ [[Ir para o Restaurante-&gt;restaurante]] ]
+[[Voltar-&gt;mary1]] </tw-passagedata><tw-passagedata pid="29" name="viajar" tags="" position="248,1553" size="100,100">(if: $unlockRestaurante is 1)[ [[Ir para o Restaurante-&gt;restaurante]] ]
 (if: $unlockDesfile is 1)[ [[Ir para o Desfile-&gt;desfile]] ]
 (if: $unlockStrip is 1)[ [[Ir ao Strip Club-&gt;stripclub]] ]
 (if: $unlockHotel is 1)[ [[Ir para o Hotel-&gt;hotel]] ]
-(if: $unlockLocadora is 1)[ [[Ir a Locadora de Carros-&gt;locadora]] ]
 [[Voltar ao acidente-&gt;cena1]] 
-</tw-passagedata><tw-passagedata pid="32" name="restaurante" tags="" position="1357,3054" size="100,100">&#39;&#39;Você chega na frente do restaurante, para onde você vai?
+</tw-passagedata><tw-passagedata pid="30" name="restaurante" tags="" position="1357,3054" size="100,100">&#39;&#39;Você chega na frente do restaurante, para onde você vai?
 &#39;&#39;
 (if: $suspeita &lt; 2)[[[Entrar no restaurante-&gt;restauranteInterior]]]
-[[Ir para o estacionamento-&gt;estacionamento]]</tw-passagedata><tw-passagedata pid="33" name="desfile" tags="" position="1428,2700" size="100,100">&#39;&#39;Você chega a rua onde ocorre o desfile e um homem em um beco encara você, como se o conhecesse.&#39;&#39;
-(if: $leilao1 is 0)[[[Já nos vimos antes?-&gt;desfile1]]]</tw-passagedata><tw-passagedata pid="34" name="conselho" tags="" position="1654,2192" size="100,100">&#39;&#39;Antes de ir embora, tem algo que me lembrei agora, você tinha muita pressa, disse que estava correndo contra o tempo e logo seria tarde demais, então faça o que tiver que fazer rápido.&#39;&#39;
+[[Ir para o estacionamento-&gt;estacionamento]]</tw-passagedata><tw-passagedata pid="31" name="desfile" tags="" position="1428,2700" size="100,100">&#39;&#39;Você chega a rua onde ocorre o desfile e um homem em um beco encara você, como se o conhecesse.&#39;&#39;
+(if: $leilao1 is 0)[[[Já nos vimos antes?-&gt;desfile1]]]</tw-passagedata><tw-passagedata pid="32" name="conselho" tags="" position="1654,2192" size="100,100">&#39;&#39;Antes de ir embora, tem algo que me lembrei agora, você tinha muita pressa, disse que estava correndo contra o tempo e logo seria tarde demais, então faça o que tiver que fazer rápido.&#39;&#39;
 (set: $conselho to 1)
 (if: $unlockRestaurante is 1)[ [[Ir para o Restaurante-&gt;restaurante]] ]
 (if: $unlockDesfile is 1)[ [[Ir para o Desfile-&gt;desfile]] ]
-[[Ir para outro lugar-&gt;viajar]]</tw-passagedata><tw-passagedata pid="35" name="Perguntou onde era o Restaurante" tags="" position="1062,2105" size="100,100">&#39;&#39;Me perguntou onde ficava o RESTAURANTE, fica na rua X número Y inclusive, mas foi só isso que perguntou.&#39;&#39;
+[[Ir para outro lugar-&gt;viajar]]</tw-passagedata><tw-passagedata pid="33" name="Perguntou onde era o Restaurante" tags="" position="1062,2105" size="100,100">&#39;&#39;Me perguntou onde ficava o RESTAURANTE, fica na rua X número Y inclusive, mas foi só isso que perguntou.&#39;&#39;
 (set: $unlockRestaurante to 1)
 (if: $conselho is 0)
 [
@@ -185,118 +173,111 @@ Você voltou, ta procurando a Mary?
 [[Ir para outro lugar-&gt;viajar]]
 (if: $unlockRestaurante is 1)[[[Ir para o Restaurante-&gt;restaurante]]]
 (if: $unlockDesfile is 1)[[[Ir para o Desfile-&gt;desfile]]]
-]</tw-passagedata><tw-passagedata pid="36" name="desfile1" tags="" position="1573,2694" size="100,100">&#39;&#39;Para com a atuação, consegui o que você pediu, fiquei te procurando ontem, mas você sumiu.&#39;&#39;
-[[Tive uns problemas, mas eae, o que era?-&gt;desfile2]]</tw-passagedata><tw-passagedata pid="37" name="desfile2" tags="" position="1715,2694" size="100,100">&#39;&#39;O convite para o leilão, ta na mão.
+]</tw-passagedata><tw-passagedata pid="34" name="desfile1" tags="" position="1573,2694" size="100,100">&#39;&#39;Para com a atuação, consegui o que você pediu, fiquei te procurando ontem, mas você sumiu.&#39;&#39;
+[[Tive uns problemas, mas eae, o que era?-&gt;desfile2]]</tw-passagedata><tw-passagedata pid="35" name="desfile2" tags="" position="1715,2694" size="100,100">&#39;&#39;O convite para o leilão, ta na mão.
 &quot;O homem entrega para você um cartão com um dragão vermelho e um código de barras&quot;&#39;&#39;
-[[Onde era o leilão mesmo?-&gt;desfile3]]</tw-passagedata><tw-passagedata pid="38" name="desfile3" tags="" position="1847,2694" size="100,100">&#39;&#39;É no portão do Restaurante, já tinha te dito ontem, esqueceu? Só mostrar o cartão e vc ta dentro, se der ruim, vc nunca me viu em&#39;&#39;
+[[Onde era o leilão mesmo?-&gt;desfile3]]</tw-passagedata><tw-passagedata pid="36" name="desfile3" tags="" position="1847,2694" size="100,100">&#39;&#39;É no portão do Restaurante, já tinha te dito ontem, esqueceu? Só mostrar o cartão e vc ta dentro, se der ruim, vc nunca me viu em&#39;&#39;
 O homem se vira e sai andando.
 (set: $unlockDesfile to 0)
 (set: $unlockRestaurante to 1)
 (set: $convite to true)
 
 [[Ir para o restaurante-&gt;restaurante]] 
-[[Ir para outro lugar-&gt;viajar]]</tw-passagedata><tw-passagedata pid="39" name="restauranteInterior" tags="" position="978,2929" size="100,100">&#39;&#39;Um restaurante japonês de classe médio convencional, nenhuma surpresa quanto a decoração ou recepção, não parece nenhum ambiente exclusivo, mas é melhor tentar não levantar suspeitas.&#39;&#39;
+[[Ir para outro lugar-&gt;viajar]]</tw-passagedata><tw-passagedata pid="37" name="restauranteInterior" tags="" position="978,2929" size="100,100">&#39;&#39;Um restaurante japonês de classe médio convencional, nenhuma surpresa quanto a decoração ou recepção, não parece nenhum ambiente exclusivo, mas é melhor tentar não levantar suspeitas.&#39;&#39;
 (if: $suspeita is 0)[(set: $suspeita to 0)]
 * [[Sentar em uma mesa-&gt;mesa]]
-* [[Sair do restaurante-&gt;restaurante]] </tw-passagedata><tw-passagedata pid="40" name="estacionamento" tags="" position="1343,3217" size="100,100">&#39;&#39;Um estacionamento grande, os únicos acessos são o restaurante e um pequeneo depósito, provavelmente de gás.&#39;&#39;
+* [[Sair do restaurante-&gt;restaurante]] </tw-passagedata><tw-passagedata pid="38" name="estacionamento" tags="" position="1343,3217" size="100,100">&#39;&#39;Um estacionamento grande, os únicos acessos são o restaurante e um pequeneo depósito, provavelmente de gás.&#39;&#39;
 (if: $pista1 &gt; 0)[&#39;&#39;Existem muitos carros para poucos clientes&#39;&#39;]
 (if: $observou is false)[[[Esgueirar-se e obsrvar o movimento-&gt;observarEstacionamento]]]
 (if: $pistas &gt; 3)[[[Aproximar-se da entrada do depósito-&gt;deposito]]]
-[[Voltar-&gt;restaurante]] </tw-passagedata><tw-passagedata pid="41" name="mesa" tags="" position="780,2925" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
+[[Voltar-&gt;restaurante]] </tw-passagedata><tw-passagedata pid="39" name="mesa" tags="" position="780,2925" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
 (if: $suspeita &lt; 2)[
 * Pedir comida
 * [[Ficar observando os arredores-&gt;observar]]
 * [[Chamar garçom-&gt;garçom]]
-* [[Sair do restaurante-&gt;restaurante]] ]</tw-passagedata><tw-passagedata pid="42" name="observar" tags="" position="658,2772" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
+* [[Sair do restaurante-&gt;restaurante]] ]</tw-passagedata><tw-passagedata pid="40" name="observar" tags="" position="658,2772" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
 (if: $suspeita &lt; 2)[Você observa aos arredores e percebe que apesar de ser um restaurante simples, algumas peças de decoração parecem muito mais caras que o resto e também alguns clientes muito ricos frequentam o local. Alguns garçons e clientes notam seus olhares, esta ação levantou suspeitas sobre você.
 (set: $suspeita to $suspeita+1)
 (set: $pistas to +2)
 (set: $pista1 to +1)]
-</tw-passagedata><tw-passagedata pid="43" name="garçom" tags="" position="628,3024" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
+</tw-passagedata><tw-passagedata pid="41" name="garçom" tags="" position="628,3024" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
 (if: $suspeita &lt; 2)[* Elogiar a comida
 * [[Tentar obter informações-&gt;garçomInfos]]
 * [[Tentar subornar o garçom para obter informações-&gt;garçomSuborno]]
-* [[Dispensar o Garçom-&gt;mesa]]]</tw-passagedata><tw-passagedata pid="44" name="garçomInfos" tags="" position="450,2985" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
+* [[Dispensar o Garçom-&gt;mesa]]]</tw-passagedata><tw-passagedata pid="42" name="garçomInfos" tags="" position="450,2985" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
 (if: $suspeita &lt; 2)[Você conversa educadamente e calmamente com o garçom, ele não desvia de todas as suas perguntas, parece que ele foi preparado para não responder nenhuma pergunta sobre estes assuntos.
 Os garçons aqui parecem diferentes do normal e com certeza ele vai falar a alguém sobre isso, esta ação levantou suspeitas sobre você.
 (set: $suspeita to $suspeita+1)
 (set: $pistas to +1)
 * [[Tentar subornar o garçom para obter informações-&gt;garçomSuborno]]
-* [[Dispensar o Garçom-&gt;mesa]]]</tw-passagedata><tw-passagedata pid="45" name="garçomSuborno" tags="" position="468,3184" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
+* [[Dispensar o Garçom-&gt;mesa]]]</tw-passagedata><tw-passagedata pid="43" name="garçomSuborno" tags="" position="468,3184" size="100,100">(if: $suspeita &gt; 2)[[[Um segurança pediu para você se retirar do restaurante-&gt;restaurante]]]
 (if: $suspeita &lt; 2)[Você oferece uma boa quantia de dinheiro discretamente enquanto faz perguntas, mas o garçom recusa instantaneamente.
 Os garçons aqui parecem diferentes do normal e com certeza ele vai falar a alguém sobre isso, esta ação levantou suspeitas sobre você.
 (set: $suspeita to $suspeita+2)
 (set: $pistas to +1)
 * [[Tentar obter informações de forma mais educada-&gt;garçomInfos]]
-* [[Dispensar o Garçom-&gt;mesa]]]</tw-passagedata><tw-passagedata pid="46" name="observarEstacionamento" tags="" position="1197,3220" size="100,100">&#39;&#39;Você observar por uns 30 minuto e repara que tem algo muito estranho, vários carros estão chegando, mas as pessoas não entram no restaurante, parece que todas estão indo para aquele pequeno depósito de gás, tem algo acontecendo aqui.&#39;&#39;
+* [[Dispensar o Garçom-&gt;mesa]]]</tw-passagedata><tw-passagedata pid="44" name="observarEstacionamento" tags="" position="1197,3220" size="100,100">&#39;&#39;Você observar por uns 30 minuto e repara que tem algo muito estranho, vários carros estão chegando, mas as pessoas não entram no restaurante, parece que todas estão indo para aquele pequeno depósito de gás, tem algo acontecendo aqui.&#39;&#39;
 (set: $pistas to +3)
 (set: $observou to true)
-[[Voltar-&gt;estacionamento]] </tw-passagedata><tw-passagedata pid="47" name="deposito" tags="" position="1340,3384" size="100,100">&#39;&#39;Você se aproxima e o segurança olha para você.&#39;&#39;
+[[Voltar-&gt;estacionamento]] </tw-passagedata><tw-passagedata pid="45" name="deposito" tags="" position="1340,3384" size="100,100">&#39;&#39;Você se aproxima e o segurança olha para você.&#39;&#39;
 
 (if: $convite is true)[[[Mostrar o convite e entrar-&gt;leilãoPacifico]]]
 (if: $dinheiro &gt; 2999)[[[Subornar por R$ 3000 para entrar-&gt;leilãoPacifico]]]
 [[Entrar através de um longo diálogo, com chance de errar alternativa e perder a oportunidade-&gt;leilãoPacifico]]
-[[Nocautear o segurança para entrar-&gt;leilãoAgressivo]]</tw-passagedata><tw-passagedata pid="48" name="leilãoPacifico" tags="" position="1263,3532" size="100,100">&#39;&#39;Um pequeno palco subterrâneo, com diversas pessoas na plateia, muitas com máscaras.&#39;&#39;
+[[Nocautear o segurança para entrar-&gt;leilãoAgressivo]]</tw-passagedata><tw-passagedata pid="46" name="leilãoPacifico" tags="" position="1263,3532" size="100,100">&#39;&#39;Um pequeno palco subterrâneo, com diversas pessoas na plateia, muitas com máscaras.&#39;&#39;
 
 Sentar-se e escutar conversas alheias -&gt; Venderam o filho do Príncipe X por 8 milhões
 
 Observar seguranças -&gt; Não são da mesma etnia da máfia
 
-[[Esgueirar-se para sala da administração -&gt;adm]]</tw-passagedata><tw-passagedata pid="49" name="leilãoAgressivo" tags="" position="1415,3534" size="100,100">&#39;&#39;Um pequeno palco subterrâneo, com diversas pessoas na plateia, muitas com máscaras. Você sabe que logo alguém vai encontrar o segurança desacordado, então é melhor ir rápido&#39;&#39;
+[[Esgueirar-se para sala da administração -&gt;adm]]</tw-passagedata><tw-passagedata pid="47" name="leilãoAgressivo" tags="" position="1415,3534" size="100,100">&#39;&#39;Um pequeno palco subterrâneo, com diversas pessoas na plateia, muitas com máscaras. Você sabe que logo alguém vai encontrar o segurança desacordado, então é melhor ir rápido&#39;&#39;
 
 
 Observar seguranças -&gt; Não são da mesma etnia da máfia
 
-[[Esgueirar-se para sala da administração -&gt;adm]]</tw-passagedata><tw-passagedata pid="50" name="adm" tags="" position="1328,3687" size="100,100">(if: $guardasLeilao &lt;= 2)[
+[[Esgueirar-se para sala da administração -&gt;adm]]</tw-passagedata><tw-passagedata pid="48" name="adm" tags="" position="1328,3687" size="100,100">(if: $guardasLeilao &lt;= 2)[
 (if: $saidaAlt is false)[[[Roubar registos de vendas-&gt;Roubar registos de vendas]]]
 (if: $saidaAlt is true)[[[Hora de ir embora-&gt;saidaAlt]]]
 [[Roubar gravações das câmeras-&gt;Roubar gravações das câmeras]]]
 (if: $guardasLeilao &gt;= 2)[&#39;&#39;Você ouve passos apressados de várias pessoas, talvez os guardas tenham descoberto, é hora de fugir&#39;&#39;[[Fugir-&gt;saidaAlt]]]
-</tw-passagedata><tw-passagedata pid="51" name="Roubar registos de vendas" tags="" position="1232,3830" size="100,100">(set: $guardasLeilao to $guardasLeilao+1)
+</tw-passagedata><tw-passagedata pid="49" name="Roubar registos de vendas" tags="" position="1232,3830" size="100,100">(set: $guardasLeilao to $guardasLeilao+1)
 (set: $saidaAlt to true)
 Você rouba os registos de vendas, o livro é grande e você acidentalmente esbarra ele em um botão, um barulho de porta destrancada nas suas costas, uma porta de abre e você escuta os sons da rua e uma brisa, parece ser uma saída alternativa.
 [[Fugir-&gt;saidaAlt]]
-[[Talvez ainda tenha algo para procurar-&gt;saidaAlt]]</tw-passagedata><tw-passagedata pid="52" name="Roubar gravações das câmeras" tags="" position="1505,3687" size="100,100">(set: $guardasLeilao to $guardasLeilao+1)
+[[Talvez ainda tenha algo para procurar-&gt;saidaAlt]]</tw-passagedata><tw-passagedata pid="50" name="Roubar gravações das câmeras" tags="" position="1505,3687" size="100,100">(set: $guardasLeilao to $guardasLeilao+1)
 Voce rouba as gravações das câmeras,
-[[Voltar-&gt;adm]]</tw-passagedata><tw-passagedata pid="53" name="saidaAlt" tags="" position="1415,3872" size="100,100">Você reuniu muitas pistas, talvez seja hora de voltar para o hotel e juntar as peças.
+[[Voltar-&gt;adm]]</tw-passagedata><tw-passagedata pid="51" name="saidaAlt" tags="" position="1415,3872" size="100,100">Você reuniu muitas pistas, talvez seja hora de voltar para o hotel e juntar as peças.
 (set: $restauranteUnlock to 0)
 [[Voltar para o hotel-&gt;hotel]] 
-[[Ir para outro lugar-&gt;viajar]] </tw-passagedata><tw-passagedata pid="54" name="portaluvasinalcansavel" tags="" position="1800,525" size="100,100">&#39;&#39;O porta-luvas stá inalcansável.&#39;&#39;
-[[Voltar-&gt;outrocarro]] </tw-passagedata><tw-passagedata pid="55" name="docscarro" tags="" position="1956,846" size="100,100">Aparentemente é um carro alugado, em um dos documentos está o endereço da locadora.
-
-[[Ir para locadora de carros-&gt;confirmalocadora]]
-[[Continuar investigando o carro-&gt;cena1]]
-(set: $unlockLocadora to 1)</tw-passagedata><tw-passagedata pid="56" name="confirmalocadora" tags="" position="1398,895" size="100,100">&#39;&#39;Se você sair desta cena, pode não ser possível retornar, tem certeza que quer sair?&#39;&#39;
-
-[[Ir para a locadora-&gt;locadora]]
-[[Voltar-&gt;cena1]]</tw-passagedata><tw-passagedata pid="57" name="confirmahotel" tags="" position="1696,959" size="100,100">&#39;&#39;Se você sair desta cena, pode não ser possível retornar, tem certeza que quer sair?&#39;&#39;
+[[Ir para outro lugar-&gt;viajar]] </tw-passagedata><tw-passagedata pid="52" name="portaluvasinalcansavel" tags="" position="1958.3333333333333,581.6666666666666" size="100,100">&#39;&#39;O porta-luvas stá inalcansável.&#39;&#39;
+[[Voltar-&gt;outrocarro]] </tw-passagedata><tw-passagedata pid="53" name="confirmahotel" tags="" position="1729.3333333333333,944" size="100,100">&#39;&#39;Se você sair desta cena, pode não ser possível retornar, tem certeza que quer sair?&#39;&#39;
 
 [[Ir para o hotel-&gt;hotel]]
-[[Voltar-&gt;cena1]]</tw-passagedata><tw-passagedata pid="58" name="carteira" tags="" position="1261,685" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;CARTEIRA&#39;&#39;]
+[[Voltar-&gt;cena1]]</tw-passagedata><tw-passagedata pid="54" name="carteira" tags="" position="1261,685" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[&#39;&#39;CARTEIRA&#39;&#39;]
 
 (if: $carteirafoivisitada is 0)[
 Dentro da carteira você encontra um documento de identidade e R$ 500.
 (set: $dinheiro to $dinheiro+500)
 (set: $carteirafoivisitada to 1)]
 (if: $DocumentoDoPlayer is 0)[[[Analisar documento-&gt;documentoPlayer]]]
-[[Voltar-&gt;bolsos]]</tw-passagedata><tw-passagedata pid="59" name="documentoPlayer" tags="" position="1099,740" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER ABAIXO:&#39;&#39;
+[[Voltar-&gt;bolsos]]</tw-passagedata><tw-passagedata pid="55" name="documentoPlayer" tags="" position="1099,740" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER ABAIXO:&#39;&#39;
 (set: $DocumentoDoPlayer to 1)
-[[Voltar-&gt;carteira]]</tw-passagedata><tw-passagedata pid="60" name="Sidebar" tags="footer" position="2370.6666666666665,1063" size="100,100">(replace: ?Sidebar)[]
+[[Voltar-&gt;carteira]]</tw-passagedata><tw-passagedata pid="56" name="Sidebar" tags="footer" position="2386.6666666666665,1018" size="100,100">(replace: ?Sidebar)[]
 (append: ?SideBar)[\
 (if: $dinheiro is not 0)[Dinheiro: R$ $dinheiro]
 (if: not ((passage:)&#39;s tags contains &quot;menu&quot;))[
 (if: $gamestart is 1)[ [[Inventário]] ]
 (set: $lastPassage to (passage:)&#39;s name)]
 
-]</tw-passagedata><tw-passagedata pid="61" name="Startup" tags="Startup" position="1473,257" size="100,100">(set: $dinheiro to 0)
+]</tw-passagedata><tw-passagedata pid="57" name="Startup" tags="Startup" position="1473,257" size="100,100">(set: $dinheiro to 0)
 (set: $lastPassage to &quot;&quot;)
 Esta é uma experiência investigativa onde você jogará contra o tempo, explorar opções de diálogo e interação pertinentes recompensarão com atalhos, mas nem todo detalhe é essencial para o progresso.
 
 
-[[Começar Jogo-&gt;cena1]]</tw-passagedata><tw-passagedata pid="62" name="Inventário" tags="menu" position="2343.9999999999995,1236.3333333333333" size="100,100">(if: $temcelular is 1)[ [[celular]] ]
+[[Começar Jogo-&gt;cena1]]</tw-passagedata><tw-passagedata pid="58" name="Inventário" tags="menu" position="2359.6666666666665,1191" size="100,100">(if: $temcelular is 1)[ [[celular]] ]
 (if: $DocumentoDoPlayer is 1)[ [[Meu documento]] ]
 (if: $TemDocsEstrangeiros is 1)[ [[Passaportes Russos]] ]
-(link-goto: &quot;Leave Menu&quot;, $lastPassage)</tw-passagedata><tw-passagedata pid="63" name="Passaportes Russos" tags="" position="2633.9999999999995,1282.3333333333333" size="100,100">&#39;&#39;IMAGEM DOS PASSAPORTES RUSSOS&#39;&#39;</tw-passagedata><tw-passagedata pid="64" name="Meu documento" tags="" position="2615.666666666666,1053" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER&#39;&#39;</tw-passagedata></tw-storydata>
+(link-goto: &quot;Leave Menu&quot;, $lastPassage)</tw-passagedata><tw-passagedata pid="59" name="Passaportes Russos" tags="" position="2649.6666666666665,1237" size="100,100">&#39;&#39;IMAGEM DOS PASSAPORTES RUSSOS&#39;&#39;</tw-passagedata><tw-passagedata pid="60" name="Meu documento" tags="" position="2631.6666666666665,1008" size="100,100">&#39;&#39;IMAGEM DO DOCUMENTO DO PLAYER&#39;&#39;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
